@@ -1,0 +1,54 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+    {
+        <div>
+            <label for="search">Search:</label>
+            <input type="text" id="search" name="query" />
+            <button type="submit">Search</button>
+        </div>
+    }
+}
+else
+{
+    <script>
+        window.location.href = "@Url.Content("~/Identity/Account/Login")";
+    </script>
+}
+
+
+@*CSS part*@
+<style>
+
+    /* Style the label */
+    label {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    /* Style the input field */
+    input[type="text"] {
+        padding: 8px;
+        border-radius: 5px;
+        border: double;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+        width: 300px;
+    }
+
+    /* Style the button */
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+        padding: 8px 15px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        /* Change the button color on hover */
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+</style>
